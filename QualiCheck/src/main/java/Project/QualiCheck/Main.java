@@ -32,10 +32,15 @@ public class Main {
         
         int pilihan = -1;
         while (pilihan != 0) {
-        	try {
-        		Option.displayOption();
+        	Option.displayOption();
         		System.out.print("Pilihan: ");
-        		pilihan = in.nextInt();
+        		String input = in.nextLine();
+        		if (input.matches("-?\\d+")) {
+					pilihan = Integer.parseInt(input);
+				} else {
+					System.out.println("Input tidak valid, hanya bisa input angka.");
+					continue;
+				}
         		switch (pilihan) {
             	case 1:
             		User.currentUser.usersActivity();
@@ -54,13 +59,8 @@ public class Main {
             	default:
             		System.out.println("Input salah, masukkan pilihan yang benar.");
             		break;
-            	}
-			} catch (InputMismatchException e) {
-				System.out.println("Input tidak valid, hanya bisa input angka.");
-				in.nextLine();
-			}	
-			
-		}
+            	}	
+	}
         
     }
 }
