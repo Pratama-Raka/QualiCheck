@@ -34,6 +34,7 @@ public class User {
 			System.out.println("User belum memiliki aktivitas.");
 		} else {
 			for (int i = 0; i < batches.size(); i++) {
+				System.out.println("-------------------------------------------------");
 				System.out.println("Nomor Batch: " + batches.get(i).getBatchId());
 				System.out.println("Tanggal Produksi: " + batches.get(i).getProductionDate());
 				System.out.println("Tipe: " + batches.get(i).getType());
@@ -67,32 +68,56 @@ public class User {
 		System.out.println("=================================================");
 		System.out.println(">>>>>>>>>>>>>>>>Input Data Sampel<<<<<<<<<<<<<<<<");
 		System.out.println("=================================================");
-		System.out.print("Kondisi Bau: ");
-		Boolean smell = in.nextBoolean();
-		System.out.print("Kondisi Warna: ");
-		Boolean color = in.nextBoolean();
-		System.out.print("Kondisi Rasa: ");
-		Boolean taste = in.nextBoolean();
-		System.out.print("Kadar Protein: ");
-		Double protein = in.nextDouble();
-		System.out.print("Kadar Lemak: ");
-		Double fat = in.nextDouble();
-		System.out.print("Total Padatan Tanpa Lemak: ");
-		Double snf = in.nextDouble();
-		System.out.print("Cemaran Kadmium: ");
-		Double cadmium = in.nextDouble();
-		System.out.print("Cemaran Timbal: ");
-		Double lead = in.nextDouble();
-		System.out.print("Cemaran Timah: ");
-		Double tin = in.nextDouble();
-		System.out.print("Cemaran Merkuri: ");
-		Double merc = in.nextDouble();
-		System.out.print("Cemaran Arsen: ");
-		Double arsenic = in.nextDouble();
-		System.out.print("Cemaran Aflatoksin: ");
-		Double aflatoxin = in.nextDouble();
-		System.out.print("Cemaran Mikroba: ");
-		Double tpc = in.nextDouble();
+		Boolean smell = null;
+		Boolean color = null;
+		Boolean taste = null;
+		try {
+			System.out.print("Kondisi Bau: ");
+			smell = in.nextBoolean();
+			System.out.print("Kondisi Warna: ");
+			color = in.nextBoolean();
+			System.out.print("Kondisi Rasa: ");
+			taste = in.nextBoolean();
+		} catch (InputMismatchException e) {
+			System.out.println("Input hanya boleh true / false.");
+			return;
+		}
+		Double protein = 0.0;
+		Double fat = 0.0;
+		Double snf = 0.0;
+		Double cadmium = 0.0;
+		Double lead = 0.0;
+		Double tin = 0.0;
+		Double merc = 0.0;
+		Double arsenic = 0.0;
+		Double aflatoxin = 0.0;
+		Double tpc = 0.0;
+		try {
+			System.out.print("Kadar Protein: ");
+			protein = in.nextDouble();
+			System.out.print("Kadar Lemak: ");
+			fat = in.nextDouble();
+			System.out.print("Total Padatan Tanpa Lemak: ");
+			snf = in.nextDouble();
+			System.out.print("Cemaran Kadmium: ");
+			cadmium = in.nextDouble();
+			System.out.print("Cemaran Timbal: ");
+			lead = in.nextDouble();
+			System.out.print("Cemaran Timah: ");
+			tin = in.nextDouble();
+			System.out.print("Cemaran Merkuri: ");
+			merc = in.nextDouble();
+			System.out.print("Cemaran Arsen: ");
+			arsenic = in.nextDouble();
+			System.out.print("Cemaran Aflatoksin: ");
+			aflatoxin = in.nextDouble();
+			System.out.print("Cemaran Mikroba: ");
+			tpc = in.nextDouble();
+			
+		} catch (InputMismatchException e) {
+			System.out.println("Input hanya boleh angka");
+			return;
+		}
 		
 		MilkSample sample = null;
 		if (type.equalsIgnoreCase("fat free")) {
