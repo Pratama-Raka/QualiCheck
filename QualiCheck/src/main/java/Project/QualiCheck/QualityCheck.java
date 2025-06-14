@@ -39,12 +39,12 @@ public class QualityCheck {
 				return true;
 			} 
 		} else if (sample instanceof LowFat) {
-			if (sample.getFat() >= DoubleQualityStandard.get("MAX_FAT_FATFREE").getStandardValue() && 
-					sample.getFat() <= DoubleQualityStandard.get("MIN_FAT").getStandardValue()) {
+			if (sample.getFat() > DoubleQualityStandard.get("MAX_FAT_FATFREE").getStandardValue() && 
+					sample.getFat() < DoubleQualityStandard.get("MIN_FAT").getStandardValue()) {
 				return true;
 			}
-		} else if (sample instanceof LowFat) {
-			if (sample.getFat() <= DoubleQualityStandard.get("MIN_FAT").getStandardValue()) {
+		} else if (sample instanceof FullCream) {
+			if (sample.getFat() >= DoubleQualityStandard.get("MIN_FAT").getStandardValue()) {
 				return true;
 			}
 		}
