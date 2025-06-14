@@ -52,6 +52,6 @@ public class Report {
 				return "Sampel tidak lulus uji.";
 			}
 		}
-		return "Sampel lulus uji.";
+		return "Sampel lulus uji.      ";
 	}
 }
